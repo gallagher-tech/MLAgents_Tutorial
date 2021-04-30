@@ -58,8 +58,8 @@ The way the agent learns is via **reinforcement learning**, which involves loopi
  - Vector Action: Branches Size: `1`; each branch is an action type (i.e., two actions could be "accelerate vs brake" and "turn left vs turn right")
  - Vector Action: Branch 0 Size: `5`; we're making an action with 5 discrete possible outcomes
 
-2. Add the **Decision Requester component** to our agent gameobject (in order to take an action we need to first request a decision). All this script does is request a decision every certain amount of time (TODO: what amount of time? What is a **Decision Period**?) at which point actions can be taken. Set the following params:
- - Decision Period: `5`; TODO: what is a **Decision Period**?
+2. Add the **Decision Requester component** to our agent gameobject (in order to take an action we need to first request a decision). All this script does is request a decision every certain amount of time at which point actions can be taken. Set the following params:
+ - Decision Period: `5`; TODO: define **Decision Period**
 
 3. Go back to the MoveAgentToGoal script and add the `OnActionReceived()` method from the `Agent` class:
 
