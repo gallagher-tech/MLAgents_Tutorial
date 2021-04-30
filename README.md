@@ -36,7 +36,7 @@ In the scene there is an **agent** (blue cube) and a goal (yellow sphere) on a p
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.MLAgents; 					/// Add MLAgents namespace
+using Unity.MLAgents; 			/// Add MLAgents namespace
 
 public class MoveToGoalAgent : Agent 	/// Inherit from the Agent class
 {
