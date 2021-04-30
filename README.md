@@ -74,7 +74,7 @@ public class MoveToGoalAgent : Agent
 {
     public override void OnActionReceived(ActionBuffers actions) 	/// Override because it already exists in the Agent class
     {
-        Debug.Log(actions.DiscreteActions[0]); 						/// Let's print the first (and only) action on our agent
+        Debug.Log(actions.DiscreteActions[0]); 				/// Let's print the first (and only) action on our agent
     }
 }
 ```
@@ -132,7 +132,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
-using Unity.MLAgents.Sensors; /// Add the Sensors namespace
+using Unity.MLAgents.Sensors; 						/// Add the Sensors namespace
 
 public class MoveToGoalAgent : Agent
 {
@@ -163,11 +163,11 @@ using Unity.MLAgents.Sensors;
 
 public class MoveToGoalAgent : Agent
 {
-    [SerializeField] private Transform targetTransform; 			/// Get "Goal" gameobject transform by adding it to an inspector field
+    [SerializeField] private Transform targetTransform; 		/// Get "Goal" gameobject transform by adding it to an inspector field
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.localPosition); 			/// Add agent position as input
+        sensor.AddObservation(transform.localPosition); 		/// Add agent position as input
         sensor.AddObservation(targetTransform.localPosition);		/// Add goal position as input
     }
 
@@ -205,8 +205,8 @@ public class MoveToGoalAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        float moveX = actions.ContinuousActions[0];										/// Get first action idx and assign to x
-        float moveZ = actions.ContinuousActions[1];										/// Get second action idx and assign to z
+        float moveX = actions.ContinuousActions[0];					/// Get first action idx and assign to x
+        float moveZ = actions.ContinuousActions[1];					/// Get second action idx and assign to z
 
         transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * 3f;	/// Set agent pos based on these values
     }
@@ -252,11 +252,11 @@ public class MoveToGoalAgent : Agent
         transform.localPosition += new Vector3(moveX, 0, moveZ) * Time.deltaTime * 3f;
     }
 
-    private void OnTriggerEnter(Collider other)       	/// Triggered when our Agent gameobject's collider enters another gameobject's collider
+    private void OnTriggerEnter(Collider other)       		/// Triggered when our Agent gameobject's collider enters another gameobject's collider
     {
-        if (other.TryGetComponent<Goal>(out Goal goal))	/// If we hit a Goal
+        if (other.TryGetComponent<Goal>(out Goal goal))		/// If we hit a Goal
         {
-            SetReward(1f);                              /// The input val here only matters relative to other rewards
+            SetReward(1f);                              	/// The input val here only matters relative to other rewards
             EndEpisode();
         }
     }
